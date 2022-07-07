@@ -13,12 +13,26 @@ class ThirdViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     let testViewModel = TestViewModel.shared
-    
+    let button: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("Button", for: .normal)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(buttonTap), for: .touchUpInside)
+        btn.configuration = .plain()
+        return btn
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(button)
+        NSLayoutConstraint.activate([
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
         NotificationCenter.default.addObserver(self, selector: #selector(moveBack(_:)), name: Notification.Name("Third"), object: nil)
         print("noti 등록")
         self.view.backgroundColor = .white
+        self.navigationItem.title = "Third"
         self.testViewModel.testRelay
             .bind { [weak self] value, msg in
                 guard let self = self else { return }
@@ -27,7 +41,10 @@ class ThirdViewController: UIViewController {
             }
             .disposed(by: disposeBag)
     }
-    
+    @objc func buttonTap() {
+        print("push (Third -> Last)")
+        self.navigationController?.pushViewController(LastViewController(), animated: true)
+    }
     @objc func moveBack(_ notification: Notification) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             print("Noti pop")

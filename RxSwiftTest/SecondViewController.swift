@@ -13,11 +13,24 @@ class SecondViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     let testViewModel = TestViewModel.shared
-    
+    let button: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("Button", for: .normal)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(buttonTap), for: .touchUpInside)
+        btn.configuration = .plain()
+        return btn
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.addSubview(button)
+        NSLayoutConstraint.activate([
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
         self.view.backgroundColor = .white
+        self.navigationItem.title = "Second"
         self.testViewModel.testRelay
             .bind { [weak self] value, msg in
                 guard let self = self else { return }
@@ -27,7 +40,10 @@ class SecondViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    
+    @objc func buttonTap() {
+        print("push (Second -> Third)")
+        self.navigationController?.pushViewController(ThirdViewController(), animated: true)
+    }
     
     
     

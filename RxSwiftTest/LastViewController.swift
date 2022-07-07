@@ -29,7 +29,7 @@ class LastViewController: UIViewController {
             button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
         self.view.backgroundColor = .white
-        
+        self.navigationItem.title = "Last"
         self.testViewModel.testRelay
             .bind { [weak self] value, msg in
                 guard let self = self else { return }
