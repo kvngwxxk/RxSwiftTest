@@ -10,10 +10,15 @@ import RxSwift
 import RxCocoa
 
 class TestData {
-    static let shared = TestData()
-    var testRelay: PublishRelay<(Bool, String)> = PublishRelay()
+    let bool = true
+    let str = "Hello"
     
-    func sendEvent() {
-        testRelay.accept((true, "Hello"))
+    func sendEvent() -> Observable<(Bool, String)> {
+        return .create { observer in
+            let temp = (self.bool, self.str)
+            observer.on(.next(temp))
+            observer.onCompleted()
+            return Disposables.create()
+        }
     }
 }

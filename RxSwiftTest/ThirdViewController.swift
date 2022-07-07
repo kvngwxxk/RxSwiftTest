@@ -12,14 +12,14 @@ import RxCocoa
 class ThirdViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
-    var td = TestData.shared
+    let testViewModel = TestViewModel.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(moveBack(_:)), name: Notification.Name("Third"), object: nil)
         print("noti 등록")
         self.view.backgroundColor = .white
-        self.td.testRelay
+        self.testViewModel.testRelay
             .bind { [weak self] value, msg in
                 guard let self = self else { return }
                 self.navigationController?.popViewController(animated: true)

@@ -12,13 +12,13 @@ import RxCocoa
 class SecondViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
-    var td = TestData.shared
+    let testViewModel = TestViewModel.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = .white
-        self.td.testRelay
+        self.testViewModel.testRelay
             .bind { [weak self] value, msg in
                 guard let self = self else { return }
                 self.navigationController?.popViewController(animated: true)

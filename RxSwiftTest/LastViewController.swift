@@ -11,7 +11,7 @@ import RxCocoa
 
 class LastViewController: UIViewController {
     static var time = CFAbsoluteTimeGetCurrent()
-    var td = TestData.shared
+    let testViewModel = TestViewModel.shared
     private let disposeBag = DisposeBag()
     let button: UIButton = {
         let btn = UIButton()
@@ -30,7 +30,7 @@ class LastViewController: UIViewController {
         ])
         self.view.backgroundColor = .white
         
-        self.td.testRelay
+        self.testViewModel.testRelay
             .bind { [weak self] value, msg in
                 guard let self = self else { return }
                 NotificationCenter.default.post(name: Notification.Name("Third"), object: nil)
@@ -46,7 +46,7 @@ class LastViewController: UIViewController {
     
     @objc func buttonTap() {
         print("send value")
-        self.td.sendEvent()
+        self.testViewModel.sendEvent()
     }
     /*
      // MARK: - Navigation

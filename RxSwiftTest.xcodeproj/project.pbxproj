@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		081AF41D2873D35200AECD85 /* LastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081AF41C2873D35200AECD85 /* LastViewController.swift */; };
+		0838D88F2876C8CA009E5BC9 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0838D88E2876C8CA009E5BC9 /* TestViewModel.swift */; };
 		08969512286D916F009EF0E9 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08969511286D916F009EF0E9 /* SecondViewController.swift */; };
 		08969514286D917B009EF0E9 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08969513286D917B009EF0E9 /* ThirdViewController.swift */; };
 		08969516286D918B009EF0E9 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08969515286D918B009EF0E9 /* TestData.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		081AF41C2873D35200AECD85 /* LastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastViewController.swift; sourceTree = "<group>"; };
+		0838D88E2876C8CA009E5BC9 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		08969511286D916F009EF0E9 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		08969513286D917B009EF0E9 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		08969515286D918B009EF0E9 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				08969511286D916F009EF0E9 /* SecondViewController.swift */,
 				08969513286D917B009EF0E9 /* ThirdViewController.swift */,
 				081AF41C2873D35200AECD85 /* LastViewController.swift */,
+				0838D88E2876C8CA009E5BC9 /* TestViewModel.swift */,
 				08969515286D918B009EF0E9 /* TestData.swift */,
 			);
 			path = RxSwiftTest;
@@ -420,6 +423,7 @@
 			files = (
 				08969512286D916F009EF0E9 /* SecondViewController.swift in Sources */,
 				081AF41D2873D35200AECD85 /* LastViewController.swift in Sources */,
+				0838D88F2876C8CA009E5BC9 /* TestViewModel.swift in Sources */,
 				08C42982283F14C8001914B4 /* MainViewController.swift in Sources */,
 				08969514286D917B009EF0E9 /* ThirdViewController.swift in Sources */,
 				08969516286D918B009EF0E9 /* TestData.swift in Sources */,
