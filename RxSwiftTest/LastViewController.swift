@@ -23,6 +23,8 @@ class LastViewController: UIViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Button Autolayout
         view.addSubview(button)
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -30,16 +32,25 @@ class LastViewController: UIViewController {
         ])
         self.view.backgroundColor = .white
         self.navigationItem.title = "Last"
+        
+        // testStack에 append
+        testViewModel.testStack.append(3)
+        
+        // testRelay Event bind
         self.testViewModel.testRelay
             .bind { [weak self] value, msg in
                 guard let self = self else { return }
                 NotificationCenter.default.post(name: Notification.Name("Third"), object: nil)
                 self.navigationController?.popViewController(animated: true)
+                
+                print("Last - testStack.popLast() : \(self.testViewModel.testStack.popLast())")
+                print("Last - current stack : \(self.testViewModel.testStack)")
                 print("Last: \(value), \(msg), pop, \(CFAbsoluteTimeGetCurrent()-LastViewController.time)")
             }
             .disposed(by: disposeBag)
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         LastViewController.time = CFAbsoluteTimeGetCurrent()
     }

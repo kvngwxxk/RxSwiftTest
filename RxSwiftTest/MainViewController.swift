@@ -13,6 +13,8 @@ class MainViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
     let testViewModel = TestViewModel.shared
+    
+    // Button 생성
     let button: UIButton = {
         let btn = UIButton()
         btn.setTitle("Button", for: .normal)
@@ -21,21 +23,31 @@ class MainViewController: UIViewController {
         btn.configuration = .plain()
         return btn
     }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Button Autolayout
         view.addSubview(button)
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             button.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
+        
         self.view.backgroundColor = .white
         self.navigationItem.title = "Main"
+        
+        // testStack에 append
+        testViewModel.testStack.append(0)
+        
+        // testRelay Event bind
         self.testViewModel.testRelay
             .bind { [weak self] value, msg in
                 guard let self = self else { return }
                 self.navigationController?.popViewController(animated: true)
-                print("Main: \(value), \(msg), pop, \(CFAbsoluteTimeGetCurrent()-LastViewController.time)")
+                print("Main - testStack.popLast() : \(self.testViewModel.testStack.popLast())")
+                print("Main - current stack : \(self.testViewModel.testStack)")
+                print("Main - \(value), \(msg), pop, \(CFAbsoluteTimeGetCurrent()-LastViewController.time)")
             }
             .disposed(by: disposeBag)
     }

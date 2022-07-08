@@ -12,8 +12,11 @@ import RxCocoa
 class TestViewModel {
     private let disposeBag = DisposeBag()
     public static let shared = TestViewModel()
+    
     var testData = TestData()
     var testRelay: PublishRelay<(Bool, String)> = PublishRelay()
+    var testStack = [Int]()
+    
     func sendEvent() {
         testData.sendEvent().subscribe(onNext: { [weak self] bool, str in
             guard let self = self else { return }
