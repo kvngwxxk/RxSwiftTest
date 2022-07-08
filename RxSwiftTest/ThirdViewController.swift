@@ -46,10 +46,10 @@ class ThirdViewController: UIViewController {
             .bind { [weak self] value, msg in
                 guard let self = self else { return }
                 self.navigationController?.popViewController(animated: true)
-                
                 print("Third - testStack.popLast() : \(self.testViewModel.testStack.popLast())")
                 print("Third - current stack : \(self.testViewModel.testStack)")
                 print("Third: \(value), \(msg), pop, \(CFAbsoluteTimeGetCurrent()-LastViewController.time)")
+                print("============================================")
             }
             .disposed(by: disposeBag)
     }

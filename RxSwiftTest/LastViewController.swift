@@ -42,10 +42,10 @@ class LastViewController: UIViewController {
                 guard let self = self else { return }
                 NotificationCenter.default.post(name: Notification.Name("Third"), object: nil)
                 self.navigationController?.popViewController(animated: true)
-                
                 print("Last - testStack.popLast() : \(self.testViewModel.testStack.popLast())")
                 print("Last - current stack : \(self.testViewModel.testStack)")
                 print("Last: \(value), \(msg), pop, \(CFAbsoluteTimeGetCurrent()-LastViewController.time)")
+                print("============================================")
             }
             .disposed(by: disposeBag)
         
@@ -56,7 +56,9 @@ class LastViewController: UIViewController {
     }
     
     @objc func buttonTap() {
-        print("send value")
+        print("============================================")
+        print("send value, current stack : \(self.testViewModel.testStack)")
+        print("============================================")
         self.testViewModel.sendEvent()
     }
     /*

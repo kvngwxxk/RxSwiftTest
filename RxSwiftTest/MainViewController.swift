@@ -48,6 +48,7 @@ class MainViewController: UIViewController {
                 print("Main - testStack.popLast() : \(self.testViewModel.testStack.popLast())")
                 print("Main - current stack : \(self.testViewModel.testStack)")
                 print("Main - \(value), \(msg), pop, \(CFAbsoluteTimeGetCurrent()-LastViewController.time)")
+                print("============================================")
             }
             .disposed(by: disposeBag)
     }
