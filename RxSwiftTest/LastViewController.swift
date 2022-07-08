@@ -42,7 +42,7 @@ class LastViewController: UIViewController {
                 guard let self = self else { return }
                 NotificationCenter.default.post(name: Notification.Name("Third"), object: nil)
                 self.navigationController?.popViewController(animated: true)
-                print("Last - testStack.popLast() : \(self.testViewModel.testStack.popLast())")
+                print("Last - testStack.popLast() : \(self.testViewModel.testStack.popLast() ?? -1)")
                 print("Last - current stack : \(self.testViewModel.testStack)")
                 print("Last: \(value), \(msg), pop, \(CFAbsoluteTimeGetCurrent()-LastViewController.time)")
                 print("============================================")

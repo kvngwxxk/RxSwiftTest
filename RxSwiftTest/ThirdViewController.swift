@@ -46,7 +46,7 @@ class ThirdViewController: UIViewController {
             .bind { [weak self] value, msg in
                 guard let self = self else { return }
                 self.navigationController?.popViewController(animated: true)
-                print("Third - testStack.popLast() : \(self.testViewModel.testStack.popLast())")
+                print("Third - testStack.popLast() : \(self.testViewModel.testStack.popLast() ?? -1)")
                 print("Third - current stack : \(self.testViewModel.testStack)")
                 print("Third: \(value), \(msg), pop, \(CFAbsoluteTimeGetCurrent()-LastViewController.time)")
                 print("============================================")
@@ -61,9 +61,9 @@ class ThirdViewController: UIViewController {
     
     // Notification 이벤트
     @objc func moveBack(_ notification: Notification) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            print("Noti pop")
+        DispatchQueue.main.async {
             self.navigationController?.popViewController(animated: true)
+            print("Noti pop")
         }
     }
     

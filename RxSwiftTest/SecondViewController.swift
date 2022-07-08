@@ -44,7 +44,7 @@ class SecondViewController: UIViewController {
             .bind { [weak self] value, msg in
                 guard let self = self else { return }
                 self.navigationController?.popViewController(animated: true)
-                print("Second - testStack.popLast() : \(self.testViewModel.testStack.popLast())")
+                print("Second - testStack.popLast() : \(self.testViewModel.testStack.popLast() ?? -1)")
                 print("Second - current stack : \(self.testViewModel.testStack)")
                 print("Second: \(value), \(msg), pop, \(CFAbsoluteTimeGetCurrent()-LastViewController.time)")
                 print("============================================")

@@ -45,7 +45,7 @@ class MainViewController: UIViewController {
             .bind { [weak self] value, msg in
                 guard let self = self else { return }
                 self.navigationController?.popViewController(animated: true)
-                print("Main - testStack.popLast() : \(self.testViewModel.testStack.popLast())")
+                print("Main - testStack.popLast() : \(self.testViewModel.testStack.popLast() ?? -1)")
                 print("Main - current stack : \(self.testViewModel.testStack)")
                 print("Main - \(value), \(msg), pop, \(CFAbsoluteTimeGetCurrent()-LastViewController.time)")
                 print("============================================")
