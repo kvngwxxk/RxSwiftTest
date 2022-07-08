@@ -16,7 +16,7 @@ class TestData {
     func sendEvent() -> Observable<(Bool, String)> {
         return .create { observer in
             let temp = (self.bool, self.str)
-            observer.on(.next(temp))
+            observer.onNext(temp)
             observer.onCompleted()
             return Disposables.create()
         }
